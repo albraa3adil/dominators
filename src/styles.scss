@@ -1,0 +1,22 @@
+
+/* You can add global styles to this file, and also import other style files */
+// @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
+// @import '~@angular/material/theming';
+// $custom-typography: mat-typography-config(
+//   $font-family: 'Oleo Script Swash Caps'
+// );
+
+// @include angular-material-typography($custom-typography);
+
+html, body { height: 100%; }
+*,body { 
+    margin: 0; 
+    font-family: 'Roboto';    
+}
+// .form-field,.mat-form-field-appearance-outline .mat-form-field-flex{
+//     height: 65px !important;
+//   }
+// ::ng-deep  {
+
+// }

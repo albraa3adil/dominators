@@ -1,0 +1,154 @@
+.chat-container {
+    margin: 0 20px;
+}
+
+.sec {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    height: 450px;
+    width: 600px;
+}
+.form-field {
+    background: white;
+    color: black;
+    width: 100%;
+    
+}
+.top {
+    background: #073042;
+    height: 50px;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-top: 10px;
+
+}
+
+mat-icon{
+    position: absolute;
+    color: #073042;
+
+}
+.search {
+    width: 100%;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    outline: none;
+    padding-left: 5px;
+    font-size: 20px;
+    // padding-left: 20px;
+    color: black;
+  }
+.search_container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  .search_icon {
+    position: absolute;
+    top: 5px;
+    left: 95%;
+    font-size: 30px;
+  }
+.sendInput {
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    
+    position: relative;
+}
+.bottom {
+    background: #073042;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0 10PX;
+
+}
+.nameTitle {
+    margin-top: 10px;
+    margin-left: 50px;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.message {
+    padding: 10px;
+    margin: 10px;
+    width: fit-content;
+  }
+  
+  .message__user {
+    margin-left: auto;
+    color: white;
+    text-align: left;
+  }
+  .msgText {
+    margin: 0;
+  }
+  .message__userCard {
+    background-color: #073042;
+    width: fit-content;
+    padding: 10px 20px;
+    color: white;
+    margin-right: 10px;
+    float: right;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .message__guestCard {
+    background-color: #e6deae;
+    width: fit-content;
+    padding: 10px 20px;
+    margin-left: 10px;
+    float: left;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .message__container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .message__containerUser {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+  }
+
+.img{
+    background-image: url('/src/assets/8c98994518b575bfd8c949e91d20548b.jpg');
+    background: #dfe4e9;
+    padding-top: 10px;
+}
+.time{font-size: 11px;}
+
+.dataMsg {
+    display: flex;
+    flex-direction: row;
+}

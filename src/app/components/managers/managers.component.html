@@ -1,0 +1,81 @@
+
+<div class="sec">
+    <div class="titleL" >
+        <h1 class="pageTitle">Manager</h1>
+        
+        <button mat-button class="BtnAdd" (click)="onAdd()"><mat-icon>add</mat-icon></button>
+    </div>
+    <div class="row" id="pdfTable" #pdfTable>
+        <div class="bar">
+            <div class="container">
+                <ul class="responsive-table">
+                    <li class="table-header">
+                    <div class="col colX">Name</div>
+                    <div class="col">Email</div>
+                    <div class="col">Password</div>
+                    </li>
+                    <li *ngIf="showAdd" fxLayout="column" fxLayoutGap="10px"  class="table-row2">
+                        <div fxLayout >
+                            <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="name" type="text" [(ngModel)]="newRecord.name">
+                                </mat-form-field>
+                            </div>
+                            <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="email" type="text" [(ngModel)]="newRecord.email">
+                                </mat-form-field>
+                            </div>
+                            <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="password"type="text" [(ngModel)]="newRecord.password">
+                                </mat-form-field>
+                            </div>
+                            
+                        </div>
+                        <div fxLayout class="btn-container">
+                            <button mat-button class="BtnC" (click)="onCancelAdd()">Cancel</button>
+                            <button mat-button class="BtnSave" (click)="onSave()">Save</button>
+                        </div>
+                    </li>
+                    
+                    <div  class="recordsContainer" (scroll)="onScroll($event)">
+                    <div *ngFor="let manager of managerResult; let i=index" >
+                            <li class="table-row" *ngIf="!manager.showEdit" (click)="onEdit(manager.managerId, i)">
+                                <div class="col colX" data-label="Job Id">{{manager.name}}</div>
+                                <div class="col" data-label="Customer Name"><div class="colHidden">Opened:</div>{{manager.email}}</div>
+                                <div class="col" data-label="Amount"><div class="colHidden">Assigned:</div>{{manager.password}}</div>
+                            </li>
+                        
+                        <li *ngIf="manager.showEdit" fxLayout="column" fxLayoutGap="10px"  class="table-row2">
+                            <div fxLayout >
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{manager.name}}" type="text" [(ngModel)]="manager.name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{manager.email}}" type="text" [(ngModel)]="manager.email">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{manager.password}}" type="text" [(ngModel)]="manager.password">
+                                    </mat-form-field>
+                                </div>
+                                
+                            </div>
+                            <div fxLayout *ngIf="manager.showEdit" class="btn-container">
+                                <button mat-button class="BtnC" (click)="onCancel()">Cancel</button>
+                                <button mat-button class="BtnR" (click)="onDelete(manager.managerId)">Delete record</button>
+                                <button mat-button class="BtnS" (click)="onSaveEdit(manager)">Save changes</button>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                </ul>
+            </div>
+      </div>
+    </div>
+</div>

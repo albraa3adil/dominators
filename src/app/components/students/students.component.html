@@ -1,0 +1,104 @@
+
+<div class="sec">
+    <div class="titleL" >
+        <h1 class="pageTitle">Student</h1>
+        
+        <button mat-button class="BtnAdd" (click)="onAdd()"><mat-icon>add</mat-icon></button>
+    </div>
+    <div class="row" id="pdfTable" #pdfTable>
+        <div class="bar">
+            <div class="container">
+                <ul class="responsive-table">
+                    <li class="table-header">
+                    <div class="col colX">Name</div>
+                    <div class="col">Email</div>
+                    <div class="col">Password</div>
+                    <div class="col">Class</div>
+                    </li>
+                    <li *ngIf="showAdd" fxLayout="column" fxLayoutGap="10px"  class="table-row2">
+                        <div fxLayout >
+                            <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="name" type="text" [(ngModel)]="newRecord.name">
+                                </mat-form-field>
+                            </div>
+                            <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="email" type="text" [(ngModel)]="newRecord.email">
+                                </mat-form-field>
+                            </div>
+                            <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="password"type="text" [(ngModel)]="newRecord.password">
+                                </mat-form-field>
+                            </div>
+                            <div class="col2">
+                                <mat-form-field >
+                                    <mat-label>Class</mat-label>
+                                    <mat-select [(ngModel)]="newRecord.class" name="dropSub">
+                                      <mat-option *ngFor="let class of dropdownResult" [value]="class.name">
+                                        {{class.name}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                        <div fxLayout class="btn-container">
+                            <button mat-button class="BtnC" (click)="onCancelAdd()">Cancel</button>
+                            <button mat-button class="BtnSave" (click)="onSave()">Save</button>
+                        </div>
+                    </li>
+                    
+                    <div  class="recordsContainer" (scroll)="onScroll($event)">
+                    <div *ngFor="let student of studentResult; let i=index" >
+                            <li class="table-row" *ngIf="!student.showEdit" (click)="onEdit(student.studentId, i)">
+                                <div class="col colX" data-label="Job Id">{{student.name}}</div>
+                                <div class="col" data-label="Customer Name"><div class="colHidden">Opened:</div>{{student.email}}</div>
+                                <div class="col" data-label="Amount"><div class="colHidden">Assigned:</div>{{student.password}}</div>
+                                <div class="col" data-label="Payment Status"><div class="colHidden">Closed:</div>{{student.class}}</div>
+                            </li>
+                        
+                        <li *ngIf="student.showEdit" fxLayout="column" fxLayoutGap="10px"  class="table-row2">
+                            <div fxLayout >
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{student.name}}" type="text" [(ngModel)]="student.name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{student.email}}" type="text" [(ngModel)]="student.email">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{student.password}}" type="text" [(ngModel)]="student.password">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <mat-label>class</mat-label>
+                                        <mat-select [(ngModel)]="student.class" name="dropSub">
+                                          <mat-option *ngFor="let sub of dropdownResult" [value]="sub.name">
+                                            {{sub.name}}
+                                          </mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+                                    <!-- <mat-form-field >
+                                        <input matInput name="{{student.subject}}" type="text" [(ngModel)]="student.subject">
+                                    </mat-form-field> -->
+                                </div>
+                            </div>
+                            <div fxLayout *ngIf="student.showEdit" class="btn-container">
+                                <button mat-button class="BtnC" (click)="onCancel()">Cancel</button>
+                                <button mat-button class="BtnR" (click)="onDelete(student.studentId)">Delete record</button>
+                                <button mat-button class="BtnS" (click)="onSaveEdit(student)">Save changes</button>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                </ul>
+            </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+
+<div class="sec">
+    <div class="titleL" >
+        <h1 class="pageTitle">Classes</h1>
+        
+        <button mat-button class="BtnAdd" (click)="onAdd()"><mat-icon>add</mat-icon></button>
+    </div>
+    <div class="row" id="pdfTable" #pdfTable>
+        <div class="bar">
+            <div class="container">
+                <ul class="responsive-table">
+                    <li class="table-header">
+                    <div class="col colX">Name</div>
+                    <div class="col">Number of student</div>
+                    </li>
+                    <li *ngIf="showAdd" fxLayout="column" fxLayoutGap="10px"  class="table-row2">
+                        <div fxLayout >
+                            <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="name" type="text" [(ngModel)]="newRecord.name">
+                                </mat-form-field>
+                            </div>
+                            <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="studentNum" type="text" [(ngModel)]="newRecord.studentNum">
+                                </mat-form-field>
+                            </div>
+                            
+                            
+                        </div>
+                        <div fxLayout class="btn-container">
+                            <button mat-button class="BtnC" (click)="onCancelAdd()">Cancel</button>
+                            <button mat-button class="BtnSave" (click)="onSave()">Save</button>
+                        </div>
+                    </li>
+                    
+                    <div  class="recordsContainer" (scroll)="onScroll($event)">
+                    <div *ngFor="let newClass of newClassResult; let i=index" >
+                            <li class="table-row" *ngIf="!newClass.showEdit" (click)="onEdit(newClass.newClassId, i)">
+                                <div class="col colX" data-label="Job Id">{{newClass.name}}</div>
+                                <div class="col" data-label="Customer Name"><div class="colHidden">Opened:</div>{{newClass.studentNum}}</div>
+                               
+                            </li>
+                        
+                        <li *ngIf="newClass.showEdit" fxLayout="column" fxLayoutGap="10px"  class="table-row2">
+                            <div fxLayout >
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{newClass.name}}" type="text" [(ngModel)]="newClass.name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{newClass.studentNum}}" type="text" [(ngModel)]="newClass.studentNum">
+                                    </mat-form-field>
+                                </div>
+                                
+                                
+                            </div>
+                            <div fxLayout *ngIf="newClass.showEdit" class="btn-container">
+                                <button mat-button class="BtnC" (click)="onCancel()">Cancel</button>
+                                <button mat-button class="BtnR" (click)="onDelete(newClass.newClassId)">Delete record</button>
+                                <button mat-button class="BtnS" (click)="onSaveEdit(newClass)">Save changes</button>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                </ul>
+            </div>
+      </div>
+    </div>
+</div>

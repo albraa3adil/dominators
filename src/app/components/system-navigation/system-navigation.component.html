@@ -1,0 +1,106 @@
+<mat-drawer-container autosize  [dir]="direction" (window:resize)="onResize($event)"  class="example-container mat-app-background" [ngClass]="{'dark-theme': isDarkTheme}">
+  <mat-drawer   #drawer class="example-sidenav" mode="side" [opened]="break"
+  mwlResizable
+  
+              [ngStyle]="resizeStyle"
+              (mouseleave)="onMouseLeave($event)"
+              >
+    <div fxLayout class="logo_container">
+      
+        <div class="user" (click)="onClickListItem('H')">
+          <div  class="user_img" ></div>
+          <div>
+            <h2 class="display-Name">{{test}} salah</h2>
+            <h5 class="user-title">Manager</h5>
+          </div>
+        </div>
+      
+      <div  fxFlex fxLayout fxLayoutAlign="flex-start">
+        <button class="toggle_btn3" type="button"  mat-icon-button (click)="drawer.toggle(); onToggle()">
+
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="menu_item" (scroll)="onScroll($event)" (mouseleave)="onLeave($event)">
+      <ul class="side_list" id="myDIV">
+        <li  class=" expansion_list">
+          <mat-accordion class="accordion">
+            <mat-expansion-panel class="expansion" [expanded]="true">
+              <mat-expansion-panel-header class="expansion-panel-header">
+              <mat-panel-title>
+                <div class="title expansion-title">{{users}}</div>
+              </mat-panel-title>
+              
+              </mat-expansion-panel-header>
+              <ul class="expansion-list">
+                <li  routerLink="student" routerLinkActive="is-active" class="side_list_item"><mat-icon>library_books</mat-icon><div class="title" active="is-active" [ngClass]="fsValue"> {{students}}</div></li>
+                <li  routerLink="teacher" routerLinkActive="is-active" class="side_list_item"><mat-icon> local_atm</mat-icon><div class="title"> {{teachers}}</div></li>
+                <li  routerLink="manager" routerLinkActive="is-active" class="side_list_item"><mat-icon> local_atm</mat-icon><div class="title"> {{managers}}</div></li>
+              </ul>
+          </mat-expansion-panel>
+          </mat-accordion>
+        </li>
+        <mat-divider ></mat-divider>
+        <li  class=" expansion_list">
+          <mat-accordion class="accordion">
+            <mat-expansion-panel class="expansion" [expanded]="true">
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="title expansion-title">{{management}}</div>
+              </mat-panel-title>
+              
+              </mat-expansion-panel-header>
+              <ul class="expansion-list">
+                <li routerLink="subject" routerLinkActive="is-active"  class="side_list_item"><mat-icon>receipt</mat-icon><div class="title" [ngClass]="fsValue"> {{subject}}</div></li>
+                <li  routerLink="class" routerLinkActive="is-active"  class="side_list_item"><mat-icon> attach_money</mat-icon><div class="title"> {{class}}</div></li>
+                <li  routerLink="classroom" routerLinkActive="is-active"  class="side_list_item"><mat-icon>account_box</mat-icon><div class="title"> {{classroom}}</div></li>
+                <li  routerLink="timetable" routerLinkActive="is-active"  class="side_list_item"><mat-icon> vpn_key</mat-icon><div class="title">{{timetable}}</div></li>
+                <li  routerLink="chat" routerLinkActive="is-active"  class="side_list_item"><mat-icon>account_balance</mat-icon><div class="title">{{chat}}</div></li>
+                <li  routerLink="videoChat" routerLinkActive="is-active"  class="side_list_item"><mat-icon>account_balance</mat-icon><div class="title">{{videoChat}}</div></li>
+              </ul>
+          </mat-expansion-panel>
+          </mat-accordion>
+        </li>
+      </ul>
+    </div>
+    <mat-divider ></mat-divider>
+    <div class="markon_logo">
+      <img src="../../../assets/logo_transparent.png" width="120px" height="110px" alt="">
+    </div>
+  </mat-drawer>
+
+    <mat-drawer-content>
+      <mat-toolbar (mouseover)="onMouseOver($event)">
+        <div fxLayout fxLayoutGap.xs="10px" class="nav">
+          <div *ngIf="!break" fxFlex fxLayout fxLayoutAlign="flex-start">
+            <button class="toggle_btn" type="button"  mat-icon-button (click)="drawer.toggle(); onToggle()">
+              <mat-icon>menu</mat-icon>
+            </button>
+          </div>
+
+          <div class="middle" fxLayout  fxLayoutGap="20px">
+          </div>
+
+         <div  fxFlex fxLayout fxLayoutAlign="flex-end">
+          <button [matMenuTriggerFor]="menu3" mat-icon-button id="sett" class="toggle_btn" aria-label="Example icon-button with heart icon">
+            <mat-icon class="settings">settings</mat-icon>
+          </button>
+          <mat-menu #menu3="matMenu">
+            <button class="icon" (click)="onSignOut()" mat-menu-item>
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+         </div>
+        </div> 
+      </mat-toolbar> 
+      <div fxLayout class="actions_box_container" (mouseover)="onMouseOver($event)">
+        
+        <div class="actions_box">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+

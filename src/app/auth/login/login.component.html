@@ -1,0 +1,67 @@
+<section fxLayout class="sec"  fxHide.xs>
+    <div class="form_con">
+        <mat-card  fxLayoutAlign="center center" class="card">
+            <form [formGroup]="loginForm" #f="ngForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="25px" fxLayoutAlign="start center" class="form">
+                <div fxLayoutAlign="center center" class="title">
+                    <img src="../../../assets/logo_transparent.png" width="100px" height="100px" alt="">
+                    <h1>Dominators</h1>
+                    <!-- <h3>welcome</h3> -->
+                </div>
+                <div class="con">
+                    <div class="input_title_container">
+                        <h2>Username</h2>
+                    </div>
+                    <mat-form-field class="form-field" autocomplete="email" appearance="outline">
+                        <!-- <mat-label>Email</mat-label> -->
+                        <input type="email" matInput placeholder="Your email" formControlName="email">
+                        <mat-icon matPrefix>person</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="con">
+                    <div class="input_title_container">
+                        <h2>Password</h2>
+                    </div>
+                    <mat-form-field class="form-field" appearance="outline">
+                        <!-- <mat-label>password</mat-label> -->
+                        <input type="password" matInput placeholder="Your password" formControlName="password">
+                        <mat-icon matPrefix>lock</mat-icon>
+                        <!-- <mat-hint>Should be at least 8 characters long</mat-hint> -->
+                    </mat-form-field>
+                </div>
+                <button class="btn" mat-raised-button [disabled]="loginForm.invalid">login</button>
+                <span fxLayout="row" fxLayoutGap="5px">
+                    <a class="to-login"><h4>Powerd by Evo</h4></a>
+                </span>
+            </form>
+        </mat-card>
+    </div>
+    <div class="art" fxLayoutAlign="center center">
+        <img src="../../../assets/undraw_online_learning_re_qw08 (1).svg" width="500px" height="500px" alt="">
+    </div>
+</section>
+
+<section fxLayoutAlign="center center" class="sec" fxHide.gt-xs>
+    <div style="width: 540px;height: 70%;">
+        <mat-card  fxLayoutAlign="center center" class="card">
+            <form [formGroup]="loginForm" #f="ngForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="25px" fxLayoutAlign="center center" class="form">
+                <div fxLayoutAlign="center center" fxLayout="column" class="title">
+                    <h1>Base note</h1>
+                    <h3>welcome</h3>
+                </div>
+                <mat-form-field class="form-field" autocomplete="email">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput placeholder="Your email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                    <mat-label>password</mat-label>
+                    <input type="password" matInput placeholder="Your password" formControlName="password">
+                    <!-- <mat-hint>Should be at least 8 characters long</mat-hint> -->
+                </mat-form-field>
+                <button class="btn" mat-raised-button [disabled]="loginForm.invalid">login</button>
+                <span fxLayout="row" fxLayoutGap="5px">
+                    <h4>Don't have an account?</h4><h4 routerLink="/signup" class="to-login">sign up</h4>
+                </span>
+            </form>
+        </mat-card>
+    </div>
+</section>

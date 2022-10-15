@@ -1,0 +1,75 @@
+.sec{
+    height: 100%;
+}
+.art{
+    width: 100%;
+    background: #fff;
+}
+.form{
+    /* height: 450px; */
+    min-width: 350px;
+    height: 90%;
+    
+}
+.form-field{
+    width: 440px;
+    height: 71px !important;
+}
+mat-icon {
+    margin-right: 20px;
+}
+.card{
+    background: #e8f0fe;
+    height: 100%;
+    width: 540px;
+}
+.title{
+    padding-top: 30px;
+}
+h1{
+    font-size: 40px;
+}
+.btn{
+    background-color: #073042;
+    width: 440px;
+    color: white;
+    height: 65.47px;
+    font-size: 24px;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{
+   background-color: hsl(34, 56%, 67%);
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-required-marker {
+   background-color: hsl(34, 56%, 67%);
+}
+::ng-deep .mat-form-field.mat-focused .mat-input-element {
+   /* color: hsl(34, 56%, 67%); */
+   text-decoration: solid;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+   color: hsl(34, 56%, 67%);
+}
+.to-login:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.to-login{
+    color: hsl(0deg 0% 56%);
+    font-weight: 450;
+}
+.input_title_container{
+    width: 440px;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+    border-radius: 3px !important;
+    /* height: 70px; */
+  }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+    border-radius: 3px !important;
+  }
+  ::ng-deep .mat-form-field{
+    font-size: 16.5px;
+  }
+  /* .form_con{
+    background: #dfe4e9;
+  } */

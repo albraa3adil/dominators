@@ -1,0 +1,91 @@
+
+<div class="sec">
+    <div class="titleL" >
+        <h1 class="pageTitle">Subject</h1>
+        
+        <button mat-button class="BtnAdd" (click)="onAdd()"><mat-icon>add</mat-icon></button>
+    </div>
+    <div class="row" id="pdfTable" #pdfTable>
+        <div class="bar">
+            <div class="container">
+                <ul class="responsive-table">
+                    <li class="table-header">
+                    <div class="col colX">Name</div>
+                    <div class="col">Description</div>
+                    <!-- <div class="col">Assigned</div>
+                    <div class="col">Closed</div> -->
+                    </li>
+                    <li *ngIf="showAdd" fxLayout="column" fxLayoutGap="10px"  class="table-row2">
+                        <div fxLayout >
+                            <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="name" type="text" [(ngModel)]="newRecord.name">
+                                </mat-form-field>
+                            </div>
+                            <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="description"type="text" [(ngModel)]="newRecord.description">
+                                </mat-form-field>
+                            </div>
+                            <!-- <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="assign" type="text" [(ngModel)]="newRecord.assign">
+                                </mat-form-field>
+                            </div>
+                            <div class="col2">
+                                <mat-form-field >
+                                    <input matInput name="closed" type="text" [(ngModel)]="newRecord.closed">
+                                </mat-form-field>
+                            </div> -->
+                        </div>
+                        <div fxLayout class="btn-container">
+                            <button mat-button class="BtnC" (click)="onCancelAdd()">Cancel</button>
+                            <button mat-button class="BtnSave" (click)="onSave()">Save</button>
+                        </div>
+                    </li>
+                    
+                    <div  class="recordsContainer" (scroll)="onScroll($event)">
+                    <div *ngFor="let subject of subjectResult; let i=index" >
+                            <li class="table-row" *ngIf="!subject.showEdit" (click)="onEdit(subject.subjectId, i)">
+                                <!-- <div class="col colX" data-label="Job Id">{{subject.name}}</div> -->
+                                <div class="col" data-label="Customer Name"><div class="colHidden">Name:</div>{{subject.name}}</div>
+                                <div class="col" data-label="Amount"><div class="colHidden">Assigned:</div>{{subject.description}}</div>
+                                <!-- <div class="col" data-label="Payment Status"><div class="colHidden">Closed:</div>{{subject.closed}}</div> -->
+                            </li>
+                        
+                        <li *ngIf="subject.showEdit" fxLayout="column" fxLayoutGap="10px"  class="table-row2">
+                            <div fxLayout >
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{subject.id}}" type="text" [(ngModel)]="subject.name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{subject.open}}" type="text" [(ngModel)]="subject.description">
+                                    </mat-form-field>
+                                </div>
+                                <!-- <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{subject.assign}}" type="text" [(ngModel)]="subject.assign">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col2">
+                                    <mat-form-field >
+                                        <input matInput name="{{subject.closed}}" type="text" [(ngModel)]="subject.closed">
+                                    </mat-form-field>
+                                </div> -->
+                            </div>
+                            <div fxLayout *ngIf="subject.showEdit" class="btn-container">
+                                <button mat-button class="BtnC" (click)="onCancel()">Cancel</button>
+                                <button mat-button class="BtnR" (click)="onDelete(subject.subjectId)">Delete record</button>
+                                <button mat-button class="BtnS" (click)="onSaveEdit(subject)">Save changes</button>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                </ul>
+            </div>
+      </div>
+    </div>
+</div>

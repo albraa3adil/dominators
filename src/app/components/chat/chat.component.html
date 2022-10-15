@@ -1,0 +1,31 @@
+<div class="sec">
+    <div class="chat-container">
+        <div class="top">
+            <h4 class="nameTitle">Yousif</h4>
+        </div>
+        <div class="img">
+            <!-- <img class="img" src="../../../assets/8c98994518b575bfd8c949e91d20548b.jpg" alt=""> -->
+            <div *ngFor="let message of messages" fxLayout="column">
+            <div class="messages_container" >
+
+                    <div class="{{isUser ? 'message__userCard' : 'message__guestCard'}}" fxLayout="column">
+                        <h2 class="msgText">{{message.message}}</h2>
+                        <div fxLayout fxLayoutAlign="center end">
+                            <!-- <span>{{message.date | date}} </span> -->
+                            <span class="time">{{message.date | date:'shortTime'}} </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom">
+            
+            <div class="search_container" >
+                <input [(ngModel)]="textToSend" type="text" matInput class="search">
+                <mat-icon class="search_icon" aria-label="Example home icon" (click)="sendMessage()">send</mat-icon>
+              </div>
+            
+        </div>
+    </div>
+</div>
